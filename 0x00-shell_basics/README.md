@@ -1,2 +1,2 @@
-# This are the commands for shell
+# These are the commands for shell
 It contains different scripts which can be run directly on the shell
