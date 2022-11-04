@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# sort the data by grouping visitors by IP and HTTP status code
+./102-lets_parse_apache_logs | sort | uniq -c | sort -nr
