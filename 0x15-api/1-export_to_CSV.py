@@ -36,7 +36,7 @@ if __name__ == "__main__":
     for no in range(0, len(todo_user)):
         info = {}
         info["USER_ID"] = id
-        info["USERNAME"] = usr[0]["name"]
+        info["USERNAME"] = usr[0]["username"]
         info["TASK_COMPLETED_STATUS"] = todo_user[no]["completed"]
         info["TASK_TITLE"] = todo_user[no]["title"]
         user_info.append(info)
