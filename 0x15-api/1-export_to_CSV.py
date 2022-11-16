@@ -45,5 +45,5 @@ if __name__ == "__main__":
     # writing newly created py dictionary into a csv file
     with open('USER_ID.csv', 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
+        # writer.writeheader()
         writer.writerows(user_info)
