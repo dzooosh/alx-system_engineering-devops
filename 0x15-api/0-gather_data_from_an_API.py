@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
-    
+
     # User detail
     user_det_url = url + "users?id=" + id
     user_detail = requests.get(user_det_url)
@@ -33,8 +33,8 @@ if __name__ == "__main__":
     todo_completed = requests.get(todo_completed_url)
     todo_completed = json.loads(todo_completed.text)
 
-    print("Employee {} is done with tasks({}/{}):"\
-           .format(usr[0]["name"], len(todo_completed), len(todo_user2)))
+    print("Employee {} is done with tasks({}/{}):" \
+          .format(usr[0]["name"], len(todo_completed), len(todo_user2)))
     # loop through to display each task title
     for task in todo_completed:
         print("\t {}".format(task["title"]))
