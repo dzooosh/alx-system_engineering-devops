@@ -9,6 +9,7 @@ if __name__ == "__main__":
         "USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"
     """
     import csv
+    import io
     import json
     import requests
     import sys
@@ -35,15 +36,14 @@ if __name__ == "__main__":
     user_info = []
     for no in range(0, len(todo_user)):
         info = {}
-        info["USER_ID"] = id
+        info["USER_ID"] = todo_user[no]["userId"]
         info["USERNAME"] = usr[0]["username"]
         info["TASK_COMPLETED_STATUS"] = todo_user[no]["completed"]
         info["TASK_TITLE"] = todo_user[no]["title"]
         user_info.append(info)
-    print(user_info)
 
     # writing newly created py dictionary into a csv file
-    with open('USER_ID.csv', 'w') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    with open('USER_ID.csv', 'wt') as csvfile:
+        writer = csv.DictWriter(csvfile, quoting=csv.QUOTE_ALL, fieldnames=fieldnames)
         # writer.writeheader()
         writer.writerows(user_info)
