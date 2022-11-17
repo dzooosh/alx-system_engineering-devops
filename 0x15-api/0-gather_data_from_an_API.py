@@ -26,11 +26,11 @@ if __name__ == "__main__":
     # completed todo task
     todo_completed = requests.get(url + "todos",
                                   params={"userId": user_id,
-                                          "completed": "True"}
+                                          "completed": "true"}
                                   ).json()
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(user_id["name"], len(todo_completed), len(todos)))
+          .format(user["name"], len(todo_completed), len(todos)))
     # loop through to display each task title
     for task in todo_completed:
         print("\t {}".format(task["title"]))
