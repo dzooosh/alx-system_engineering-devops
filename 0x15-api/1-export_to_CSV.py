@@ -14,36 +14,20 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    id = sys.argv[1]
+    user_id = sys.argv[1]
     url = "https://jsonplaceholder.typicode.com/"
 
     # User detail
-    user_det_url = url + "users?id=" + id
-    user_detail = requests.get(user_det_url)
-    usr = json.loads(user_detail.text)
+    user = requests.get(url + "users/{}".format(user_id)).json()
 
     # request all todo list of the ID
-    todo_det_url = url + "todos?userId=" + id
-    todo_detail_total = requests.get(todo_det_url)
-    todo_user = json.loads(todo_detail_total.text)
+    todos = requests.get(url + "todos", params={"userId": user_id}).json()
 
-    # create dictionary with the right format and
-    # store each dictionaary to a list
-    fieldnames = [
-        "USER_ID", "USERNAME",
-        "TASK_COMPLETED_STATUS", "TASK_TITLE"
-        ]
-    user_info = []
-    for no in range(0, len(todo_user)):
-        info = {}
-        info["USER_ID"] = todo_user[no]["userId"]
-        info["USERNAME"] = usr[0]["username"]
-        info["TASK_COMPLETED_STATUS"] = todo_user[no]["completed"]
-        info["TASK_TITLE"] = todo_user[no]["title"]
-        user_info.append(info)
+    username = user.get("username")
 
     # writing newly created py dictionary into a csv file
-    with open('USER_ID.csv', 'wt') as csvfile:
-        writer = csv.DictWriter(csvfile, quoting=csv.QUOTE_ALL, fieldnames=fieldnames)
-        # writer.writeheader()
-        writer.writerows(user_info)
+    with open("{}.csv".format(user_id), 'w', newline="") as csvfile:
+        writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+        for t in todos:
+            writer.writerow([user_id, username, t.get("completed"),
+            t.get("title")])
