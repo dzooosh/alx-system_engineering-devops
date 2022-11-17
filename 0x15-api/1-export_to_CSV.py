@@ -30,4 +30,4 @@ if __name__ == "__main__":
         writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         for t in todos:
             writer.writerow([user_id, username, t.get("completed"),
-            t.get("title")])
+                            t.get("title")])
