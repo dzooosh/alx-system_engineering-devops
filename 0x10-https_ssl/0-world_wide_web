@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# accepts arguments: domain (compulsory), sub-domain (optional) 
+#+ and doinegs informations specific to them
+args=("www" "lb-01" "web-01" "web-02")
+
+if [ $# -lt 1 ]
+then
+    echo "input the domain name to audit"
+elif [ $# -eq 2 ]
+then
+    dig $2.$1 | awk -v arg="$2" 'NR==14 {print "The subdomain",arg,"is a",$4,"record and points to",$5}'
+elif [ $# -eq 1 ]
+then
+    for arg in ${args[@]};
+    do
+        dig $arg.$1 | awk -v arg="$arg" 'NR==14 {print "The subdomain",arg,"is a",$4,"record and points to",$5}'
+    done
+fi
