@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# install ufw firewall and set up
+apt-get update
+apt install -y ufw
+ufw disable
+ufw allow '22'
+ufw allow '443'
+ufw allow 'http'
+ufw enable
