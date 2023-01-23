@@ -1,0 +1,33 @@
+What happens when you type "https://www.google.com" in your browser and press enter
+Introduction
+When you type "https://www.google.com" in your browser and press enter, a series of complex interactions take place behind the scenes to bring the Google homepage to your screen. In this blog post, we'll take a closer look at the various steps involved in this process, including DNS requests, TCP/IP connections, firewall interactions, HTTPS/SSL encryption, load balancing, web server operations, and database interactions.
+
+DNS Request
+
+The first step in the process is a DNS request. When you type "https://www.google.com" into your browser, your computer sends a request to a DNS server to resolve the domain name "www.google.com" to an IP address. The DNS server looks up the IP address in its records and sends it back to your computer.
+
+Once your computer has the IP address, it establishes a TCP/IP connection with the web server at that address. The Transmission Control Protocol (TCP) establishes a reliable connection between your computer and the web server, while the Internet Protocol (IP) handles the routing of the connection through the internet.
+
+Firewall
+
+As the connection is being established, any firewall that is present may check the incoming connection to see if it is allowed. A firewall is a security system that monitors and controls the incoming and outgoing network traffic based on predetermined security rules and policies.
+
+HTTPS/SSL
+
+Once the connection is established and the firewall check is passed, the browser sends a request for the Google homepage over the secure HTTPS protocol, which stands for "Hypertext Transfer Protocol Secure." HTTPS encrypts the communication between the browser and the webserver to protect against eavesdropping and tampering. This is done with the help of SSL (Secure Sockets Layer) or its successor TLS (Transport Layer Security) certificates.
+
+Web Server
+
+Load-Balancer
+When the request reaches the web server, it may be directed to a load balancer. A load balancer is a device that distributes incoming network traffic across multiple servers to ensure that no single server is overwhelmed with too many requests. This helps ensure that the website remains responsive and available to users even under heavy load.
+
+Application Server
+
+Once the request reaches the correct web server, the server runs the necessary code to generate the HTML, JavaScript, and CSS that make up the Google homepage. The web server then sends this code back to the browser, which uses it to render the page on your screen.
+
+Database
+
+Finally, the web server may also interact with one or more databases to retrieve or store data as part of generating the Google homepage. This data might include information about the user's search history, personalized content, or information about the products and services offered by Google.
+
+In conclusion, when you type "https://www.google.com" in your browser and press enter, a lot of things happen behind the scenes to bring the Google homepage to your screen. From DNS requests to TCP/IP connections, firewall interactions to HTTPS/SSL encryption, load balancing to web server operations, and database interactions, each step plays an important role in ensuring that you have a seamless browsing experience.
+
